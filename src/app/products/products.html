@@ -1,0 +1,13 @@
+<input [(ngModel)]="searchTerm" placeholder="Search clothes..." class="search-bar" />
+
+<div class="products">
+  <div class="product-card" *ngFor="let product of filteredProducts">
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.details }}</p>
+    <p>₱{{ product.price }}</p>
+
+    <button (click)="add(product)" [disabled]="product.stock === 0">
+      {{ product.stock > 0 ? 'Add to Cart' : 'Out of Stock' }}
+    </button>
+  </div>
+</div>
